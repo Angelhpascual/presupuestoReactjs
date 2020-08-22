@@ -1,4 +1,6 @@
 import React, {Fragment} from 'react';
+import { revisarPresupuesto } from '../helpers';
+import PropTypes from 'prop-types';
 
 const ControlPresupuesto = ({presupuesto, restante}) => {
     return ( 
@@ -9,7 +11,7 @@ const ControlPresupuesto = ({presupuesto, restante}) => {
                 Presupuesto: {presupuesto}
             </div>
 
-            <div className="alert">
+            <div className={revisarPresupuesto(presupuesto, restante)}>
                 Restante: {restante}
             </div>
 
@@ -17,7 +19,10 @@ const ControlPresupuesto = ({presupuesto, restante}) => {
 
      );
 }
- 
+ControlPresupuesto.propTypes ={
+    presupuesto:PropTypes.number.isRequired,
+    restante:PropTypes.number.isRequired
+}
 export default ControlPresupuesto;
 
 
